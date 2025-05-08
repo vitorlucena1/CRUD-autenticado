@@ -1,4 +1,3 @@
-// filepath: /workspaces/CRUD-autenticado/api/middleware/jwt.token.middleware.js
 import jwt from "jsonwebtoken";
 
 const verifyToken = (req, res, next) => {

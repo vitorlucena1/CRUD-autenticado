@@ -6,6 +6,7 @@ import {
     getAllUsers as fetchAllUsers,
 } from "../services/user.service.js";
 
+
 // Função para registrar um novo usuário
 export const register = async (req, res) => {
     const { username, email, password } = req.body;
