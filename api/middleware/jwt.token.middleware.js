@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
-const verifyToken = (req, res, next) => {
+const verifyToken = async (req, res, next) => {
     const token = req.header("Authorization")?.split(" ")[1];
 
     if (!token) {
@@ -10,6 +11,13 @@ const verifyToken = (req, res, next) => {
 
     try {
         const verified = jwt.verify(token, process.env.JWT_SECRET);
+        const user = await User.findById(verified.id);
+
+        if (!user) {
+            console.error("Unauthorized: User does not exist");
+            return res.status(401).json({ message: "Unauthorized: User does not exist" });
+        }
+
         req.user = verified; // Adiciona o ID do usuário ao objeto req
         console.log(`Token verified for user ID: ${req.user.id}`);
         next();
