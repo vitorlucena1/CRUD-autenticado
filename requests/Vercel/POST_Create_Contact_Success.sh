@@ -1,7 +1,7 @@
 curl --request POST \
-  --url 'http://localhost:3000/contacts' \
+  --url 'https://crud-autenticado.vercel.app/contacts' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWNkZTcwNTFiYTRhNzM3YzI4NDgxYyIsImlhdCI6MTc0NjcyMjQyNSwiZXhwIjoxNzQ2NzI2MDI1fQ.epgJa-PIGRiomqxHkJ8rCvHH5-IZWAa0HC9iubJgDgc' \
+  --header 'Authorization: Bearer <TOKEN>' \
   --data '{
     "name": "Maria Oliveira",
     "phone": "+5511987654321",

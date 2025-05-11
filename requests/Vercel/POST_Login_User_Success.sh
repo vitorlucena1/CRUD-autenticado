@@ -1,7 +1,7 @@
 curl --request POST \
-  --url 'http://localhost:3000/users/login' \
+  --url 'https://crud-autenticado.vercel.app/users/login' \
   --header 'Content-Type: application/json' \
   --data '{
     "email": "joao.silva@example.com",
-    "password": "wrongpassword"
+    "password": "securepassword123"
   }'
