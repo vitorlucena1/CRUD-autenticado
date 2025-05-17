@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors'; // Adicione esta linha
 import db from './database/configdb.js';
 import userRoute from './routes/user.route.js';
 import contactRoute from './routes/contact.route.js';
@@ -9,6 +10,11 @@ db.connect();
 
 const app = express();
 
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 app.use("/users", userRoute);
 app.use("/contacts", contactRoute);
