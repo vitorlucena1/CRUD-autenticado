@@ -12,12 +12,11 @@ const ContactSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: false // Email não é obrigatório
+        required: false
     },
     phone: {
         type: String,
-        required: true,
-        unique: true // Telefone deve ser único
+        required: true
     },
     address: {
         type: String,
@@ -28,6 +27,9 @@ const ContactSchema = new mongoose.Schema({
         required: false
     }
 });
+
+// Índice composto para garantir que cada usuário tenha contatos com telefones únicos
+ContactSchema.index({ userId: 1, phone: 1 }, { unique: true });
 
 const Contact = mongoose.model("Contact", ContactSchema);
 export default Contact;
